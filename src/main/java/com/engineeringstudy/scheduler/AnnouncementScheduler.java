@@ -69,6 +69,7 @@ public class AnnouncementScheduler {
 
 //List<Announcement> expired = List.of(announcement1, announcement2);
 
+//---------------------------------------------------------------------------------------------------------------
 
 //3. announcementRepository.deleteAll(expired);
 //

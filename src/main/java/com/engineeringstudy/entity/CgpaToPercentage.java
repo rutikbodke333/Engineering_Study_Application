@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "cgpa_conversions")
-public class CgpaConversion {
+public class CgpaToPercentage {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

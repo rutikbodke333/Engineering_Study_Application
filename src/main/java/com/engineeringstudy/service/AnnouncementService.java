@@ -5,10 +5,16 @@ import com.engineeringstudy.dto.AnnouncementDto;
 import java.util.List;
 
 public interface AnnouncementService {
-	
-	AnnouncementDto upsertAnnouncemen(AnnouncementDto announcementDto);
-	List<AnnouncementDto> getAll();
-	AnnouncementDto getById(Long id);
-	void deleteById(Long id);
 
+	// Create or update an announcement
+	AnnouncementDto upsertAnnouncemen(AnnouncementDto announcementDto);
+
+	// Fetch all announcements
+	List<AnnouncementDto> getAll();
+
+	// Get announcement by ID
+	AnnouncementDto getById(Long id);
+
+	// Delete announcement by ID
+	void deleteById(Long id);
 }
