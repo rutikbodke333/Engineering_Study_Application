@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CgpaConversionDto {
+public class CgpaToPercentageDto {
 
-    private Long id;
-    private Double cgpa;
-    private Double percentage;
+	private Double cgpa;
+
 }
