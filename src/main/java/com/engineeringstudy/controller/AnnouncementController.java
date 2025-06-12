@@ -38,7 +38,7 @@ public class AnnouncementController {
         return new ResponseEntity<>(announcements, HttpStatus.OK);
     }
 
-    // Get announcement by ID
+    // Get announcement by id
     @GetMapping("/{announcementId}")
     public ResponseEntity<AnnouncementDto> getAnnouncementById(@PathVariable Long announcementId) {
         AnnouncementDto announcement = announcementService.getById(announcementId);
