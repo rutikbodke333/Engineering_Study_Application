@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public interface DocumentService {
-	DocumentDto uploadDocument(MultipartFile file, DocumentDto dto) throws IOException;
+	DocumentDto uploadDocument(MultipartFile file, DocumentDto dto, Long userId) throws IOException;
 
 	DocumentDto getDocumentById(Long id);
 

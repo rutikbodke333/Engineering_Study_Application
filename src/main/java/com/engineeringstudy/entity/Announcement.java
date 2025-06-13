@@ -11,26 +11,24 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Announcement {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    private String title;
+	private String title;
 
-    
-    private String content;
+	private String content;
 
-    private String createdBy;
+	private String createdBy;
 
-    private String targetAudience; // e.g., "All", "Mechanical", "Year 1"
+	private String targetAudience; // e.g., "All", "Mechanical", "Year 1"
 
-    private LocalDateTime createdAt;
+	private LocalDateTime createdAt;
 
-    private LocalDateTime expiryDate;
+	private LocalDateTime expiryDate;
 
-    
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
+	private User user;
+
 }
-
-
-
-

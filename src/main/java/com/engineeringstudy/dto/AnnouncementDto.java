@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+import com.engineeringstudy.entity.User;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +21,7 @@ public class AnnouncementDto {
 	private String targetAudience;
 	private LocalDateTime createdAt;
 	private LocalDateTime expiryDate;
+	private User user;
 }
 
 //{

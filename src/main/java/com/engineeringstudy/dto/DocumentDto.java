@@ -1,5 +1,7 @@
 package com.engineeringstudy.dto;
 
+import com.engineeringstudy.entity.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,4 +19,5 @@ public class DocumentDto {
     private String academicYear;          // Optional: "2024-2025"
     private String department; 	// Optional: "Computer Science and Engineering"
     private String filePath;      // Path to the uploaded file
+    private User user;
 }

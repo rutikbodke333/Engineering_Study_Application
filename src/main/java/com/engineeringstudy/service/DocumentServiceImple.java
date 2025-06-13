@@ -2,8 +2,11 @@ package com.engineeringstudy.service;
 
 import com.engineeringstudy.dto.DocumentDto;
 import com.engineeringstudy.entity.Document;
+import com.engineeringstudy.entity.User;
 import com.engineeringstudy.exception.DocumentNotFoundException;
 import com.engineeringstudy.repository.DocumentRepository;
+import com.engineeringstudy.repository.UserRepository;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,13 +28,20 @@ public class DocumentServiceImple implements DocumentService {
 	
 	@Autowired
 	private DocumentRepository documentRepository;
+	
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	@Autowired
 	private ModelMapper modelMapper;
 
 	@Override
-	public DocumentDto uploadDocument(MultipartFile file, DocumentDto dto) throws IOException {
-
+	public DocumentDto uploadDocument(MultipartFile file, DocumentDto dto, Long userId) throws IOException {
+		
+		User id = userRepository.findById(userId)
+				.orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
+        
 		Files.createDirectories(Paths.get(uploadDir));
 
 		String filename = file.getOriginalFilename();
@@ -44,6 +54,7 @@ public class DocumentServiceImple implements DocumentService {
 		
 //		This line sets the path where the file was saved, so we can store it in the database.
 		document.setFilePath(path.toString());
+		document.setUser(id);
 		
 		Document savedDocument = documentRepository.save(document);
 

@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ApiResponse {
 
-	
 	private String exCode;
 	private String exMsg;
 	private LocalDateTime localDateTime;

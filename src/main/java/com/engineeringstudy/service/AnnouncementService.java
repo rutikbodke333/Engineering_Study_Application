@@ -7,7 +7,7 @@ import java.util.List;
 public interface AnnouncementService {
 
 	// Create or update an announcement
-	AnnouncementDto upsertAnnouncemen(AnnouncementDto announcementDto);
+	AnnouncementDto upsertAnnouncemen(AnnouncementDto announcementDto, Long id);
 
 	// Fetch all announcements
 	List<AnnouncementDto> getAll();

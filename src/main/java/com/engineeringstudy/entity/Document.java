@@ -23,6 +23,10 @@ public class Document {
 	private String semester; // Optional: e.g., "Semester 4"
 	private String academicYear; // Optional: e.g., "2024-2025"
 	private String department;
-	
+
 	private String filePath; // Saved file location
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
+	private User user; // User who uploaded the document
 }

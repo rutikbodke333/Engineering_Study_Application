@@ -18,11 +18,12 @@ public class DocumentController {
 	private DocumentService documentService;
 
 	// ✅ Upload document using @RequestParam
-	@PostMapping("/documents/upload")
+	@PostMapping("user/{userId}/documents/upload")
 	public ResponseEntity<DocumentDto> uploadDocument(@RequestParam("file") MultipartFile file,
 			@RequestParam("title") String title, @RequestParam("documentType") String documentType,
 			@RequestParam("branch") String branch, @RequestParam("semester") String semester,
-			@RequestParam("academicYear") String academicYear, @RequestParam("department") String department)
+			@RequestParam("academicYear") String academicYear, @RequestParam("department") String department,
+			@PathVariable Long userId)
 			throws IOException {
 		DocumentDto dto = new DocumentDto();
 		dto.setTitle(title);
@@ -32,7 +33,7 @@ public class DocumentController {
 		dto.setAcademicYear(academicYear);
 		dto.setDepartment(department);
 
-		DocumentDto saved = documentService.uploadDocument(file, dto);
+		DocumentDto saved = documentService.uploadDocument(file, dto, userId);
 		return ResponseEntity.status(HttpStatus.CREATED).body(saved);
 	}
 

@@ -1,5 +1,7 @@
 package com.engineeringstudy.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,4 +28,10 @@ public class User {
 	private String password;
 
 	private String role; // "ROLE_ADMIN" or "ROLE_USER"
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Announcement> announcements;
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Document> documents; // One user can have multiple documents
 }

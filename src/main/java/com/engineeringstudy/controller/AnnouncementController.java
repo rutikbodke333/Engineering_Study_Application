@@ -11,23 +11,22 @@ import com.engineeringstudy.dto.AnnouncementDto;
 import com.engineeringstudy.service.AnnouncementService;
 
 @RestController
-@RequestMapping("/announcements")
 public class AnnouncementController {
 
     @Autowired
     private AnnouncementService announcementService;
 
     // Create new announcement
-    @PostMapping("/create")
-    public ResponseEntity<AnnouncementDto> createAnnouncement(@RequestBody AnnouncementDto announcementDto) {
-        AnnouncementDto newAnnouncement = announcementService.upsertAnnouncemen(announcementDto);
+    @PostMapping("/user/{userId}/announcements")
+    public ResponseEntity<AnnouncementDto> createAnnouncement(@RequestBody AnnouncementDto announcementDto, @PathVariable Long userId) {
+        AnnouncementDto newAnnouncement = announcementService.upsertAnnouncemen(announcementDto, userId);
         return new ResponseEntity<>(newAnnouncement, HttpStatus.CREATED);
     }
 
     // Update announcement
-    @PutMapping("/update")
-    public ResponseEntity<AnnouncementDto> updateAnnouncement(@RequestBody AnnouncementDto announcementDto) {
-        AnnouncementDto updatedAnnouncement = announcementService.upsertAnnouncemen(announcementDto);
+    @PutMapping("/user/{userId}/announcements")
+    public ResponseEntity<AnnouncementDto> updateAnnouncement(@RequestBody AnnouncementDto announcementDto, @PathVariable Long userId) {
+        AnnouncementDto updatedAnnouncement = announcementService.upsertAnnouncemen(announcementDto, userId);
         return new ResponseEntity<>(updatedAnnouncement, HttpStatus.OK);
     }
 
