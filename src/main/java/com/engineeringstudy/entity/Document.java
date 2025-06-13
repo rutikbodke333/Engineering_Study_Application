@@ -16,12 +16,12 @@ public class Document {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String title; // e.g., "Timetable Sem 3", "Result CE22A123", etc.
-	private String documentType; // e.g., "RESULT", "TIMETABLE", "EBOOK", "Question-PAPER"
+	private String title; 
+	private String documentType; 
 
-	private String branch; // Optional: e.g., "Computer", "IT"
-	private String semester; // Optional: e.g., "Semester 4"
-	private String academicYear; // Optional: e.g., "2024-2025"
+	private String branch; 
+	private String semester; 
+	private String academicYear; 
 	private String department;
 
 	private String filePath; // Saved file location

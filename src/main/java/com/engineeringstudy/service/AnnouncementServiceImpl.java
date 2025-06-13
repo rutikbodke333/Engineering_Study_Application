@@ -2,12 +2,17 @@ package com.engineeringstudy.service;
 
 import com.engineeringstudy.dto.AnnouncementDto;
 import com.engineeringstudy.entity.Announcement;
+import com.engineeringstudy.entity.PaginationResponce;
 import com.engineeringstudy.entity.User;
 import com.engineeringstudy.repository.AnnouncementRepository;
 import com.engineeringstudy.repository.UserRepository;
 import com.engineeringstudy.service.AnnouncementService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -19,7 +24,8 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 
 	@Autowired
 	private AnnouncementRepository announcementRepository;
-	
+
+	@Autowired
 	private UserRepository userRepository;
 
 	@Autowired
@@ -28,7 +34,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 //    create and update the announcement
 	@Override
 	public AnnouncementDto upsertAnnouncemen(AnnouncementDto dto, Long userId) {
-		
+
 		User id = userRepository.findById(userId)
 				.orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
 		Announcement announcement = modelMapper.map(dto, Announcement.class);
@@ -43,11 +49,32 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 
 //    Fetch all announcements
 	@Override
-	public List<AnnouncementDto> getAll() {
-		List<Announcement> announcements = announcementRepository.findAll();
+	public PaginationResponce getAll(Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
+
+		Sort sort = null;
+
+		if (sortDir.equalsIgnoreCase("asc")) {
+			sort = Sort.by(sortBy).ascending();
+		} else {
+			sort = Sort.by(sortBy).descending();
+		}
+
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+
+		Page<Announcement> announcementPage = announcementRepository.findAll(pageable);
+		List<Announcement> announcements = announcementPage.getContent();
+
 		List<AnnouncementDto> announcementDtos = announcements.stream()
 				.map(a -> modelMapper.map(a, AnnouncementDto.class)).collect(Collectors.toList());
-		return announcementDtos;
+		PaginationResponce paginationResponse = new PaginationResponce();
+		paginationResponse.setContent(announcementDtos);
+		paginationResponse.setPageNumber(announcementPage.getNumber());
+		paginationResponse.setPageSize(announcementPage.getSize());
+		paginationResponse.setTotalElements(announcementPage.getTotalElements());
+		paginationResponse.setTotalPages(announcementPage.getTotalPages());
+		paginationResponse.setLastPage(announcementPage.isLast());
+
+		return paginationResponse;
 	}
 
 //    Get announcement by ID

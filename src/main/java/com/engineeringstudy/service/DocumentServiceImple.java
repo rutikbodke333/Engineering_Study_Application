@@ -2,8 +2,8 @@ package com.engineeringstudy.service;
 
 import com.engineeringstudy.dto.DocumentDto;
 import com.engineeringstudy.entity.Document;
+import com.engineeringstudy.entity.PaginationResponce;
 import com.engineeringstudy.entity.User;
-import com.engineeringstudy.exception.DocumentNotFoundException;
 import com.engineeringstudy.repository.DocumentRepository;
 import com.engineeringstudy.repository.UserRepository;
 
@@ -12,6 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,12 +28,11 @@ import java.util.stream.Collectors;
 public class DocumentServiceImple implements DocumentService {
 
 	@Value("${location}")
-    private String uploadDir;
-	
+	private String uploadDir;
+
 	@Autowired
 	private DocumentRepository documentRepository;
-	
-	
+
 	@Autowired
 	private UserRepository userRepository;
 
@@ -38,10 +41,10 @@ public class DocumentServiceImple implements DocumentService {
 
 	@Override
 	public DocumentDto uploadDocument(MultipartFile file, DocumentDto dto, Long userId) throws IOException {
-		
+
 		User id = userRepository.findById(userId)
 				.orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
-        
+
 		Files.createDirectories(Paths.get(uploadDir));
 
 		String filename = file.getOriginalFilename();
@@ -51,11 +54,12 @@ public class DocumentServiceImple implements DocumentService {
 		Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
 
 		Document document = modelMapper.map(dto, Document.class);
-		
+
 //		This line sets the path where the file was saved, so we can store it in the database.
 		document.setFilePath(path.toString());
 		document.setUser(id);
-		
+		document.setTitle(filename);
+
 		Document savedDocument = documentRepository.save(document);
 
 		return modelMapper.map(savedDocument, DocumentDto.class);
@@ -64,20 +68,37 @@ public class DocumentServiceImple implements DocumentService {
 	@Override
 	public DocumentDto getDocumentById(Long id) {
 		Document doc = documentRepository.findById(id)
-				.orElseThrow(() -> new DocumentNotFoundException("Document not found with ID: " + id));
+				.orElseThrow(() -> new RuntimeException("Document not found with ID: " + id));
 		return modelMapper.map(doc, DocumentDto.class);
 	}
 
 	@Override
-	public List<DocumentDto> getAllDocuments() {
+	public PaginationResponce getAllDocuments(Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
 
-	    List<Document> listOfDocuments = documentRepository.findAll();
+		Sort sort = null;
+		if (sortDir.equalsIgnoreCase("asc")) {
+			sort = Sort.by(sortBy).ascending();
+		} else {
+			sort = Sort.by(sortBy).descending();
+		}
 
-	    List<DocumentDto> listOfDocumentDtos = listOfDocuments.stream()
-	            .map(doc -> modelMapper.map(doc, DocumentDto.class))
-	            .collect(Collectors.toList());
+		Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
-	    return listOfDocumentDtos;
+		Page<Document> documentPage = documentRepository.findAll(pageable);
+		List<Document> listOfDocuments = documentPage.getContent();
+		// Convert list of Document entities to list of DocumentDto
+
+		List<DocumentDto> listOfDocumentDtos = listOfDocuments.stream()
+				.map(doc -> modelMapper.map(doc, DocumentDto.class)).collect(Collectors.toList());
+		PaginationResponce paginationResponse = new PaginationResponce();
+		paginationResponse.setContent(listOfDocumentDtos);
+		paginationResponse.setPageNumber(documentPage.getNumber());
+		paginationResponse.setPageSize(documentPage.getSize());
+		paginationResponse.setTotalElements(documentPage.getTotalElements());
+		paginationResponse.setTotalPages(documentPage.getTotalPages());
+		paginationResponse.setLastPage(documentPage.isLast());
+
+		return paginationResponse;
 	}
 
 }

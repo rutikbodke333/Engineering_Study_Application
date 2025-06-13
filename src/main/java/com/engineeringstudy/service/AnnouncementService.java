@@ -1,6 +1,7 @@
 package com.engineeringstudy.service;
 
 import com.engineeringstudy.dto.AnnouncementDto;
+import com.engineeringstudy.entity.PaginationResponce;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface AnnouncementService {
 	AnnouncementDto upsertAnnouncemen(AnnouncementDto announcementDto, Long id);
 
 	// Fetch all announcements
-	List<AnnouncementDto> getAll();
+	PaginationResponce getAll(Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
 
 	// Get announcement by ID
 	AnnouncementDto getById(Long id);

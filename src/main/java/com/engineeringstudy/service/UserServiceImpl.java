@@ -1,12 +1,16 @@
 package com.engineeringstudy.service;
 
 import com.engineeringstudy.dto.UserDto;
+import com.engineeringstudy.entity.PaginationResponce;
 import com.engineeringstudy.entity.User;
-import com.engineeringstudy.exception.UserNotFoundException;
 import com.engineeringstudy.repository.UserRepository;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +26,18 @@ public class UserServiceImpl implements UserService {
 	private ModelMapper modelMapper;
 
 	@Override
+	public UserDto createUser(UserDto userDto) {
+		// Check if email already exists
+		if (userRepository.existsByEmail(userDto.getEmail())) {
+			throw new RuntimeException("Email already registered: " + userDto.getEmail());
+		}
+
+		User user = modelMapper.map(userDto, User.class);
+		User savedUser = userRepository.save(user);
+		return modelMapper.map(savedUser, UserDto.class);
+	}
+
+	@Override
 	public UserDto updateUser(UserDto userDto) {
 		User user = modelMapper.map(userDto, User.class);
 		User upsertUser = userRepository.save(user);
@@ -31,28 +47,47 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDto getUserById(Long id) {
-		
-		User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
+
+		User user = userRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 		return modelMapper.map(user, UserDto.class);
 	}
 
 	@Override
-	public List<UserDto> getAllUsers() {
-		
-		List<User> users = userRepository.findAll();
-		 List<UserDto> userDtos = users.stream()
-				.map(user -> modelMapper.map(user, UserDto.class))
+	public PaginationResponce getAllUsers(Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
+
+		Sort sort = null;
+		if (sortDir.equalsIgnoreCase("asc")) {
+			sort = Sort.by(sortBy).ascending();
+		} else {
+			sort = Sort.by(sortBy).descending();
+		}
+		Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
+
+		Page<User> page = userRepository.findAll(pageable);
+
+		List<User> users = page.getContent();
+
+		List<UserDto> userDtos = users.stream().map(user -> modelMapper.map(user, UserDto.class))
 				.collect(Collectors.toList());
-		 
-		 return userDtos;
-		
+
+		PaginationResponce paginationResponce = new PaginationResponce();
+		paginationResponce.setContent(userDtos);
+		paginationResponce.setPageNumber(page.getNumber());
+		paginationResponce.setPageSize(page.getSize());
+		paginationResponce.setTotalElements(page.getTotalElements());
+		paginationResponce.setTotalPages(page.getTotalPages());
+		paginationResponce.setLastPage(page.isLast());
+
+		return paginationResponce;
+
 	}
 
 	@Override
 	public void deleteUserById(Long id) {
-		
+
 		User user = userRepository.findById(id)
-				.orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
+				.orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 		userRepository.delete(user);
 
 	}
