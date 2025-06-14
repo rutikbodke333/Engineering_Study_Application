@@ -20,6 +20,8 @@ import com.engineeringstudy.entity.PaginationResponce;
 import com.engineeringstudy.service.UserService;
 import com.engineeringstudy.service.UserServiceImpl;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class UserController {
 
@@ -27,7 +29,7 @@ public class UserController {
 	public UserService userService;
 
 	@PostMapping("/user")
-	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+	public ResponseEntity<UserDto> createUser(@Valid  @RequestBody UserDto userDto) {
 
 		UserDto createdUser = userService.createUser(userDto);
 
@@ -37,7 +39,7 @@ public class UserController {
 	
 	
 	@PutMapping("/user")
-	public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto) {
+	public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto) {
 
 		UserDto updateUser = userService.updateUser(userDto);
 

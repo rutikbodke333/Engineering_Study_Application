@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CgpaToPercentageDto {
 
+	
 	private Double cgpa;
 
 }

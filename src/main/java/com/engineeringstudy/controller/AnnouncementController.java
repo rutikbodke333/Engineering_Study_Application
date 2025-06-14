@@ -11,6 +11,8 @@ import com.engineeringstudy.dto.AnnouncementDto;
 import com.engineeringstudy.entity.PaginationResponce;
 import com.engineeringstudy.service.AnnouncementService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class AnnouncementController {
 
@@ -19,7 +21,7 @@ public class AnnouncementController {
 
 	// Create new announcement
 	@PostMapping("/user/{userId}/announcements")
-	public ResponseEntity<AnnouncementDto> createAnnouncement(@RequestBody AnnouncementDto announcementDto,
+	public ResponseEntity<AnnouncementDto> createAnnouncement(@Valid  @RequestBody AnnouncementDto announcementDto,
 			@PathVariable Long userId) {
 		AnnouncementDto newAnnouncement = announcementService.upsertAnnouncemen(announcementDto, userId);
 		return new ResponseEntity<>(newAnnouncement, HttpStatus.CREATED);
@@ -27,7 +29,7 @@ public class AnnouncementController {
 
 	// Update announcement
 	@PutMapping("/user/{userId}/announcements")
-	public ResponseEntity<AnnouncementDto> updateAnnouncement(@RequestBody AnnouncementDto announcementDto,
+	public ResponseEntity<AnnouncementDto> updateAnnouncement(@Valid @RequestBody AnnouncementDto announcementDto,
 			@PathVariable Long userId) {
 		AnnouncementDto updatedAnnouncement = announcementService.upsertAnnouncemen(announcementDto, userId);
 		return new ResponseEntity<>(updatedAnnouncement, HttpStatus.OK);
