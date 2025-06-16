@@ -74,7 +74,7 @@ Pranvi needs two key entities in her system:
 - **🛠️ Functionality:** Allows admin to create user accounts with admin role.  
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Create User Admin](https://github.com/yourusername/your-repo-name/blob/main/path-to-create-user.png?raw=true)
+![Create User Admin](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
 
 ---
 
@@ -83,7 +83,7 @@ Pranvi needs two key entities in her system:
 - **🛠️ Functionality:** Admin can post a new announcement.  
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Create Announcement](https://github.com/yourusername/your-repo-name/blob/main/path-to-create-announcement.png?raw=true)
+![Create Announcement](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
 
 ---
 
@@ -91,6 +91,8 @@ Pranvi needs two key entities in her system:
 - **📌 Endpoint:** `GET /engineeringstudy/announcements`  
 - **🛠️ Functionality:** Returns all announcements visible to users.  
 - **🧪 Tested with:** Postman
+- **🖼️ Screenshot:**  
+![Get All Announcements**](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
 
 ---
 
@@ -98,6 +100,8 @@ Pranvi needs two key entities in her system:
 - **📌 Endpoint:** `POST /engineeringstudy/user/documents`  
 - **🛠️ Functionality:** Allows a user to upload a study document.  
 - **🧪 Tested with:** Postman
+- **🖼️ Screenshot:**  
+![Upload PDF](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
 
 ---
 
@@ -105,7 +109,8 @@ Pranvi needs two key entities in her system:
 - **📌 Endpoint:** `GET /engineeringstudy/user/convert?percentage=85`  
 - **🛠️ Functionality:** Returns CGPA equivalent of given percentage.  
 - **🧪 Tested with:** Postman
-
+- **🖼️ Screenshot:**  
+![Convert Percentage to CGPA](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
 
 ---
 
