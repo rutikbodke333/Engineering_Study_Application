@@ -22,17 +22,9 @@ As a _**backend developer**_, it’s your mission to build a powerful _**Enginee
 With your skills, she can focus on supporting her peers—without getting lost in digital clutter. 🎯
 
 
----
 
-## Technologies Used  
-
-- **Backend:** Spring Boot, JPA (Hibernate), RESTful APIs  
-- **Database:** MySQL  
-- **API Testing:** Postman  
-- **Version Control:** Git & GitHub  
 
 ---
-
 # 🎓 Engineering Study Application
 
 A backend system designed for **Pranvi**, an engineering student passionate about helping her peers by sharing study materials, announcements, and academic utilities like percentage-to-CGPA conversion.
@@ -57,6 +49,84 @@ Pranvi needs two key entities in her system:
 - **PostedBy** (User ID)
 
 ---
+
+## 🧑‍💻 User Roles
+
+The system supports two main user roles:
+
+### ✅ Admin:
+- Manage users  
+- Post announcements  
+- Oversee document uploads  
+
+### ✅ Student/User:
+- Browse announcements  
+- Upload study documents (e.g., PDFs)  
+- Use CGPA conversion tool  
+
+---
+
+## 📌 Main Modules
+
+- **Auth Module** – User registration and login  
+- **User Management** – Admin creates and manages users  
+- **Announcement Module** – Admins post and manage announcements  
+- **Document Module** – Students upload and manage study materials  
+- **Utility Module** – CGPA conversion tool  
+
+---
+
+  ## 🛠 Technologies Used
+
+- **Backend:** Spring Boot,  Hibernate, JPA  
+- **Database:** MySQL  
+- **Security:** JWT-based authentication, role-based access control  
+- **Build Tool:** Maven  
+- **Version Control:**  Git & GitHub
+
+---
+
+---
+
+## 🔍 Functional Requirements
+
+### 📌 Admin Module
+
+#### 👥 User Management:
+- Create and manage student/admin users  
+- Assign roles (USER / ADMIN)  
+
+#### 📢 Announcements:
+- Post, update, and delete announcements  
+
+#### 📊 Reports:
+- View uploaded documents list  
+- Track announcement history  
+
+---
+
+### 📌 Student/User Module
+
+#### 📢 Announcements:
+- View all announcements posted by admin  
+
+#### 📄 Documents:
+- Upload and manage study PDFs  
+
+#### 🧮 Utilities:
+- Convert percentage to CGPA  
+
+#### 👤 Profile:
+- Update personal information
+
+---
+
+## 🔐 Security Features
+
+- JWT-based token authentication  
+- Role-based access control (**ADMIN / USER**)  
+- Secure password storage using hashing (e.g., BCrypt)  
+- Stateless session management  
 
 ## 📡 API Endpoints
 
@@ -113,4 +183,6 @@ Pranvi needs two key entities in her system:
 ![Convert Percentage to CGPA](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
 
 ---
+
+
 
