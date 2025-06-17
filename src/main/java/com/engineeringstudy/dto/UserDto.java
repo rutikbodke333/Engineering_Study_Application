@@ -26,9 +26,7 @@ public class UserDto {
 	@NotBlank(message = "Password must be not blank")
 	@Size(min = 6, max = 20, message = "Password must have min 6 characters and max 20 characters")
 	private String password;
-
-	@NotBlank(message = "role must be not blank")
-	@Size(min = 4, max = 10, message = "role must have min 4 characters and max 10 characters")
+	
 	private String role;
 
 }

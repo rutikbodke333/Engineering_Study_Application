@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +26,24 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private ModelMapper modelMapper;
 
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
+	@Override
+	public UserDto registerUser(UserDto userDto) {
+
+		User user = modelMapper.map(userDto, User.class);
+
+		// Encode the password before saving
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setRole("ROLE_USER"); 
+		
+		User savedUser = userRepository.save(user);
+
+		return modelMapper.map(savedUser, UserDto.class);
+
+	}
+
 	@Override
 	public UserDto createUser(UserDto userDto) {
 		// Check if email already exists
@@ -33,17 +52,30 @@ public class UserServiceImpl implements UserService {
 		}
 
 		User user = modelMapper.map(userDto, User.class);
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setRole("ROLE_ADMIN");
 		User savedUser = userRepository.save(user);
+
 		return modelMapper.map(savedUser, UserDto.class);
 	}
 
 	@Override
-	public UserDto updateUser(UserDto userDto) {
-		User user = modelMapper.map(userDto, User.class);
-		User upsertUser = userRepository.save(user);
+	public UserDto updateUser(UserDto userDto, Long id) {
+	    // Check if the user exists
+	    User existingUser = userRepository.findById(id)
+	            .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+	    
+	    existingUser.setName(userDto.getName());
+	    existingUser.setEmail(userDto.getEmail());
+	    existingUser.setPassword(passwordEncoder.encode(userDto.getPassword()));
+	    existingUser.setRole(userDto.getRole()); // Ensure the role is set correctly
 
-		return modelMapper.map(upsertUser, UserDto.class);
+	   
+	    User upsertUser = userRepository.save(existingUser);
+
+	    return modelMapper.map(upsertUser, UserDto.class);
 	}
+
 
 	@Override
 	public UserDto getUserById(Long id) {
@@ -62,8 +94,8 @@ public class UserServiceImpl implements UserService {
 		} else {
 			sort = Sort.by(sortBy).descending();
 		}
-		Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
-
+//		Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
 		Page<User> page = userRepository.findAll(pageable);
 
 		List<User> users = page.getContent();

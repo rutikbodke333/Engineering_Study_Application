@@ -17,4 +17,7 @@ public interface DocumentService {
 	DocumentDto getDocumentById(Long id);
 
 	PaginationResponce getAllDocuments(Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
+	
+	public void deleteDocument(Long id);
 }
+//

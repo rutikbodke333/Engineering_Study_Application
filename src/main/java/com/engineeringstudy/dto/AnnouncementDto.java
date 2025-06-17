@@ -20,7 +20,7 @@ public class AnnouncementDto {
 	private Long id;
 
 	@NotBlank(message = "title cannot be blank")
-	@Size(min = 4, max = 20, message = "title must be between 4 and 20 characters")
+	@Size(min = 4, max = 50, message = "title must be between 4 and 20 characters")
 	private String title;
 
 	@NotBlank(message = "content cannot be blank")
@@ -39,5 +39,5 @@ public class AnnouncementDto {
 
 	private LocalDateTime expiryDate;
 
-	private UserDto user; // to avoid recursion , we use UserDto
+	
 }

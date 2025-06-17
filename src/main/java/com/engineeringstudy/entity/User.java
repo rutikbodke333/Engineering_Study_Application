@@ -26,10 +26,22 @@ public class User {
 	private String password;
 
 	private String role; // "ROLE_ADMIN" or "ROLE_USER"
+	
+	
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Announcement> announcements;
+//	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private List<Announcement> announcements;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Document> documents; // One user can have multiple documents
+	
+	
+	
+	public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 }
+
+
+

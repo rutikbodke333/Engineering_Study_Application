@@ -27,8 +27,9 @@ public class Announcement {
 
 	private LocalDateTime expiryDate;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
-	private User user;
+//	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "user_id")
+//	
+//	private User user;
 
 }

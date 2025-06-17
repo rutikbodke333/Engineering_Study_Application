@@ -33,18 +33,32 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 
 //    create and update the announcement
 	@Override
-	public AnnouncementDto upsertAnnouncemen(AnnouncementDto dto, Long userId) {
+	public AnnouncementDto createAnnouncement(AnnouncementDto dto) {
 
-		User id = userRepository.findById(userId)
-				.orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
 		Announcement announcement = modelMapper.map(dto, Announcement.class);
 		announcement.setCreatedAt(LocalDateTime.now()); // Now: 2025-06-09 10:15 AM
 //      2025-06-09 10:15 AM + 1 week(7 days)  = 2025-06-16 10:15 AM
 		announcement.setExpiryDate(LocalDateTime.now().plusWeeks(1));
-		announcement.setUser(id);
 
 		Announcement saved = announcementRepository.save(announcement);
 		return modelMapper.map(saved, AnnouncementDto.class);
+	}
+	
+//	update the announcement by announcementId
+	@Override
+	public AnnouncementDto updateAnnouncement(AnnouncementDto announcementDto, Long announcementId) {
+		Announcement existingAnnouncement = announcementRepository.findById(announcementId)
+				.orElseThrow(() -> new RuntimeException("Announcement not found with id: " + announcementId));
+
+		existingAnnouncement.setTitle(announcementDto.getTitle());
+		existingAnnouncement.setContent(announcementDto.getContent());
+		existingAnnouncement.setCreatedBy(announcementDto.getCreatedBy());
+		existingAnnouncement.setTargetAudience(announcementDto.getTargetAudience());
+		existingAnnouncement.setCreatedAt(LocalDateTime.now()); 
+		existingAnnouncement.setExpiryDate(announcementDto.getExpiryDate());
+
+		Announcement updatedAnnouncement = announcementRepository.save(existingAnnouncement);
+		return modelMapper.map(updatedAnnouncement, AnnouncementDto.class);
 	}
 
 //    Fetch all announcements
@@ -90,4 +104,6 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 	public void deleteById(Long id) {
 		announcementRepository.deleteById(id);
 	}
+
+	
 }

@@ -7,9 +7,19 @@ import java.util.List;
 
 public interface AnnouncementService {
 
-	// Create or update an announcement
-	AnnouncementDto upsertAnnouncemen(AnnouncementDto announcementDto, Long id);
+	
 
+
+	
+	
+	
+	// Create a new announcement
+    AnnouncementDto createAnnouncement(AnnouncementDto announcementDto);
+
+    // Update an existing announcement by announcement ID
+    AnnouncementDto updateAnnouncement(AnnouncementDto announcementDto, Long announcementId);
+    
+    
 	// Fetch all announcements
 	PaginationResponce getAll(Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
 
@@ -18,4 +28,8 @@ public interface AnnouncementService {
 
 	// Delete announcement by ID
 	void deleteById(Long id);
+
+   
 }
+
+

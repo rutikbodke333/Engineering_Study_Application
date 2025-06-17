@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engineeringstudy.dto.CgpaToPercentageDto;
@@ -12,6 +13,7 @@ import com.engineeringstudy.exception.InvalidCgpaException;
 import com.engineeringstudy.service.CgpaToPercentageService;
 
 @RestController
+@RequestMapping("/engineeringstudy/user")
 public class CgpaToPercentageController {
 
 	@Autowired

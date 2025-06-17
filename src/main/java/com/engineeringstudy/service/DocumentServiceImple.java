@@ -19,6 +19,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.List;
@@ -100,5 +101,29 @@ public class DocumentServiceImple implements DocumentService {
 
 		return paginationResponse;
 	}
+
+	
+	@Override
+	public void deleteDocument(Long id) {
+	    Document document = documentRepository.findById(id)
+	        .orElseThrow( () -> new RuntimeException("Document not found with ID: " + id));
+
+	    // Step 1: Delete the file from the folder
+	    String filePath = document.getFilePath(); // or construct from baseDir + fileName
+	    File file = new File(filePath);
+	    if (file.exists()) {
+	        boolean deleted = file.delete();
+	        if (!deleted) {
+	            throw new RuntimeException("Failed to delete file from disk");
+	        }
+	    }
+
+	    // Step 2: Delete record from the database
+	    documentRepository.deleteById(id);
+	}
+
+	
+	
+	
 
 }
