@@ -4,8 +4,10 @@
 ![SpringBoot](https://img.shields.io/badge/SpringBoot-2.7-green)  
 ![MySQL](https://img.shields.io/badge/MySQL-Database-blue)  
 ![JPA](https://img.shields.io/badge/JPA-Hibernate-orange)  
-![GitHub](https://img.shields.io/badge/GitHub-VersionControl-black)  
-![Postman](https://img.shields.io/badge/Postman-API%20Testing-orange)  
+![GitHub](https://img.shields.io/badge/GitHub-VersionControl-green)  
+![Postman](https://img.shields.io/badge/Postman-API%20Testing-orange)
+![JWT](https://img.shields.io/badge/JWT-Authentication-blue)
+
 
  
 
