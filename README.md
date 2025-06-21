@@ -1,4 +1,4 @@
-# Engineering Study Application
+# 🎓 Engineering Study Application
  
 
 ![SpringBoot](https://img.shields.io/badge/SpringBoot-2.7-green)  
@@ -9,7 +9,7 @@
 
  
 
-# 🚀 The Problem Statement and solution
+## 🚀 The Problem Statement and solution
 
 As an engineering student, I often found it difficult to access the right academic resources at the right time. Whether it was hunting for previous year question papers, eBooks, or even important announcements like exam timetables and circulars., we often waste valuable time searching for the study materials we need—whether it's old question papers, class notes, lab manuals, or even basic information like exam timetables. Everything felt scattered and disorganized—spread across group chats, shared drives, and forwarded messages. This constant searching wastes time and adds unnecessary stress, especially during exams and submission deadlines. 
 
@@ -21,16 +21,12 @@ To keep the content useful and up to date, users can also remove any outdated or
 
 
 ---
-# 🎓 Engineering Study Application
 
-A backend system designed for **Pranvi**, an engineering student passionate about helping her peers by sharing study materials, announcements, and academic utilities like percentage-to-CGPA conversion.
-
----
-
-## 📊 Understanding the Data
+## 📊 Entity Overview
 
 
-# 📂 **Users**
+
+### 📂 _**Users**_
 - **ID** 
 - **Name** 
 - **Email**
@@ -38,7 +34,7 @@ A backend system designed for **Pranvi**, an engineering student passionate abou
 - **Role** - Either `USER` or `ADMIN`  
 - **Documents** - List of documents uploaded by the user
 
-# 📄 **Documents**
+### 📄 _**Documents**_
 - **ID** 
 - **Title** 
 - **DocumentType**
@@ -49,7 +45,7 @@ A backend system designed for **Pranvi**, an engineering student passionate abou
 - **FilePath** - file location 
 - **User** - User who uploaded the document
 
-# 📢 **Announcements**
+### 📢 _**Announcements**_
 - **ID** - Unique identifier  
 - **Title** - Announcement title  
 - **Message** - Announcement content  
@@ -62,14 +58,18 @@ A backend system designed for **Pranvi**, an engineering student passionate abou
 The system supports two main user roles:
 
 ### ✅ Admin:
-- Manage users  
-- Post announcements  
-- Oversee document uploads  
+- Admin manages users.
+- Admin can create new announcements such as circulars, timetables, re-exam notices and each announcement is automatically deleted after some time.       
+- Admin can upload documents such as the syllabus, result pdf, timetables, and ebooks.
+- Admin can remove previously uploaded documents that are outdated or incorrect.    
 
-### ✅ Student/User:
-- Browse announcements  
-- Upload study documents (e.g., PDFs)  
-- Use CGPA conversion tool  
+### ✅ User:
+- Users can create, update, and delete their profiles
+- Users can view announcements related to exam timetables and circulars.
+- Users can upload notes, lab manuals and assignments.
+- Users can remove previously uploaded documents that are outdated or incorrect.
+- Users can convert CGPA into a percentage.
+ 
 
 ---
 
@@ -93,40 +93,7 @@ The system supports two main user roles:
 
 ---
 
----
 
-## 🔍 Functional Requirements
-
-### 📌 Admin Module
-
-#### 👥 User Management:
-- Create and manage student/admin users  
-- Assign roles (USER / ADMIN)  
-
-#### 📢 Announcements:
-- Post, update, and delete announcements  
-
-#### 📊 Reports:
-- View uploaded documents list  
-- Track announcement history  
-
----
-
-### 📌 Student/User Module
-
-#### 📢 Announcements:
-- View all announcements posted by admin  
-
-#### 📄 Documents:
-- Upload and manage study PDFs  
-
-#### 🧮 Utilities:
-- Convert percentage to CGPA  
-
-#### 👤 Profile:
-- Update personal information
-
----
 
 ## 🔐 Security Features
 
