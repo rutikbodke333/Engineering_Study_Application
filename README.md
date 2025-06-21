@@ -50,7 +50,7 @@ To keep the content useful and up to date, users can also remove any outdated or
 - **Title** - Announcement title  
 - **Message** - Announcement content  
 - **PostedBy** - User ID who posted it
-- 
+
 ---
 
 ## 🧑‍💻 User Roles
@@ -109,25 +109,74 @@ The system supports two main user roles:
 - **🛠️ Functionality:** Accepts user details and registers a normal user.  
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/create%20new%20user.png?raw=true)
 
 ---
 
+### 1️⃣ _**Login User**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/user%20login.png?raw=true)
+
+---
 ### 2️⃣ _**Create User Profile (Admin)**_  
 - **📌 Endpoint:** `POST /engineeringstudy/admin/users`  
 - **🛠️ Functionality:** Allows admin to create user accounts with admin role.  
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Create User Admin](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
+![Create User Admin](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/create%20new%20admin.png?raw=true)
 
 ---
+
+### 1️⃣ _**Admin Login**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/admin%20login.png?raw=true)
+
+---
+### 1️⃣ _**Get All Users**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Get%20All%20Users.png?raw=true)
+
+
+---
+### 1️⃣ _**update user**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Update%20user.png?raw=true)
+
+---
+### 1️⃣ _**get the user by userId**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Get%20the%20user%20by%20userId.png?raw=true)
+---
+### 1️⃣ _**Delete User**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Delete%20User.png?raw=true)
+---
+
 
 ### 3️⃣ _**Create Announcement (Admin)**_  
 - **📌 Endpoint:** `POST /engineeringstudy/admin/announcements`  
 - **🛠️ Functionality:** Admin can post a new announcement.  
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Create Announcement](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
+![Create Announcement](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Add%20announcemnt.png?raw=true)
 
 ---
 
@@ -136,8 +185,22 @@ The system supports two main user roles:
 - **🛠️ Functionality:** Returns all announcements visible to users.  
 - **🧪 Tested with:** Postman
 - **🖼️ Screenshot:**  
-![Get All Announcements**](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
+![Get All Announcements**](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Get%20all%20announcemnt.png?raw=true)
 
+---
+### 1️⃣ _**get announcemnt by id**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/get%20announcemnt%20by%20id.png?raw=true)
+---
+### 1️⃣ _**update announcement by announcementId**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/update%20announcement%20by%20announcementId.png?raw=true)
 ---
 
 ### 5️⃣ _**Upload PDF (User)**_  
@@ -145,8 +208,30 @@ The system supports two main user roles:
 - **🛠️ Functionality:** Allows a user to upload a study document.  
 - **🧪 Tested with:** Postman
 - **🖼️ Screenshot:**  
-![Upload PDF](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
+![Upload PDF](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/upload%20new%20document.png?raw=true)
 
+---
+
+### 1️⃣ _**get all documents**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/get%20all%20documents.png?raw=true)
+---
+### 1️⃣ _**get document by id**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/get%20document%20by%20id.png?raw=true)
+---
+### 1️⃣ _**delete the document based id**_  
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
+- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/delete%20the%20document%20based%20id.png?raw=true)
 ---
 
 ### 6️⃣ _**Convert Percentage to CGPA (User)**_  
@@ -154,7 +239,7 @@ The system supports two main user roles:
 - **🛠️ Functionality:** Returns CGPA equivalent of given percentage.  
 - **🧪 Tested with:** Postman
 - **🖼️ Screenshot:**  
-![Convert Percentage to CGPA](https://github.com/rutikbodke333/movie-review-system/blob/main/Returns%20a%20list%20of%20movies%20along%20with%20their%20reviews.png?raw=true)
+![Convert Percentage to CGPA](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/cgpa%20to%20percentage.png?raw=true)
 
 ---
 
