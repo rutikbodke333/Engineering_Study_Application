@@ -9,7 +9,7 @@
 ![JWT](https://img.shields.io/badge/JWT-Authentication-blue)
 
 
- 
+ ---
 
 ## 🚀 The Problem Statement and solution
 
