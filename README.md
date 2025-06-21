@@ -9,17 +9,13 @@
 
  
 
-# 🚀 The Challenge
+# 🚀 The Problem Statement and solution
 
-Meet **Pranvi**, a dedicated engineering student who’s passionate about helping her peers learn and grow.  
-She wants to share _**study materials**_, _**announcements**_, and handy tools like a _**percentage-to-CGPA converter**_ with her community.
+As an engineering student, I often found it difficult to access the right academic resources at the right time. Whether it was hunting for previous year question papers, eBooks, or even important announcements like exam timetables and circulars., we often waste valuable time searching for the study materials we need—whether it's old question papers, class notes, lab manuals, or even basic information like exam timetables. Everything felt scattered and disorganized—spread across group chats, shared drives, and forwarded messages. This constant searching wastes time and adds unnecessary stress, especially during exams and submission deadlines. 
 
-But managing everything through scattered **files**, **group chats**, and **emails** is becoming overwhelming and inefficient.
+That’s why I developed the Engineering Study Application—to make it easier for students to access academic resources without the hassle. It’s designed to bring everything we need into one organized platform, so we no longer have to depend on others or scroll endlessly through group chats just to find a single file. Through the app, users can upload important resources like notes, lab manuals, and assignments, which are then made accessible to others—encouraging a shared and collaborative academic environment.
 
-That’s where **you** come in!  
-As a _**backend developer**_, it’s your mission to build a powerful _**Engineering Study Application**_ that helps Pranvi stay organized and productive.
-
-With your skills, she can focus on supporting her peers—without getting lost in digital clutter. 🎯
+To keep the content useful and up to date, users can also remove any outdated or incorrect documents they’ve previously uploaded. The app includes a dedicated section for academic announcements, where students can instantly view important updates like exam timetables, circulars and helping us stay informed at all times.
 
 
 
