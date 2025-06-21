@@ -110,146 +110,163 @@ The system supports two main user roles:
 - Secure password storage using hashing (e.g., BCrypt)  
 - Stateless session management  
 
+---
+
 ## 📡 API Endpoints
 
-### 1️⃣ _**Register User**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+---
+
+#### 1️⃣ _**Register User**_
+- **📌 Endpoint:** `POST /engineeringstudy/auth/register`
+- **🛠️ Functionality:** Accepts user details and registers a normal user.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/create%20new%20user.png?raw=true)
+  ![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/create%20new%20user.png?raw=true)
 
 ---
 
-### 1️⃣ _**Login User**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+#### 2️⃣ _**Login User**_
+- **📌 Endpoint:** `POST /engineeringstudy/auth/login`
+- **🛠️ Functionality:** Authenticates user and returns a JWT token.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/user%20login.png?raw=true)
+  ![Login User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/user%20login.png?raw=true)
 
 ---
-### 2️⃣ _**Create User Profile (Admin)**_  
-- **📌 Endpoint:** `POST /engineeringstudy/admin/users`  
-- **🛠️ Functionality:** Allows admin to create user accounts with admin role.  
+
+#### 3️⃣ _**Create User Profile (Admin)**_
+- **📌 Endpoint:** `POST /engineeringstudy/admin/users`
+- **🛠️ Functionality:** Allows admin to create  accounts with admin role.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Create User Admin](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/create%20new%20admin.png?raw=true)
+  ![Create User Admin](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/create%20new%20admin.png?raw=true)
 
 ---
 
-### 1️⃣ _**Admin Login**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+#### 4️⃣ _**Admin Login**_
+- **📌 Endpoint:** `POST /engineeringstudy/auth/login`
+- **🛠️ Functionality:** Authenticates admin and returns a JWT token.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/admin%20login.png?raw=true)
+  ![Admin Login](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/admin%20login.png?raw=true)
 
 ---
-### 1️⃣ _**Get All Users**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+
+#### 5️⃣ _**Get All Users (Admin)**_
+- **📌 Endpoint:** `GET /engineeringstudy/user/allUsers`
+- **🛠️ Functionality:**  fetch all registered users.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Get%20All%20Users.png?raw=true)
-
+  ![Get All Users](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Get%20All%20Users.png?raw=true)
 
 ---
-### 1️⃣ _**update user**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+
+### 6️⃣ _**Update User (Admin/User)**_
+- **📌 Endpoint:** `PUT /engineeringstudy/user/{id}`
+- **🛠️ Functionality:** update user details by ID.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Update%20user.png?raw=true)
+  ![Update User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Update%20user.png?raw=true)
 
 ---
-### 1️⃣ _**get the user by userId**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+
+### 7️⃣ _**Get User by ID**_
+- **📌 Endpoint:** `GET /engineeringstudy/user/{id}`
+- **🛠️ Functionality:** Fetch user data by ID.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Get%20the%20user%20by%20userId.png?raw=true)
+  ![Get User by ID](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Get%20the%20user%20by%20userId.png?raw=true)
+
 ---
-### 1️⃣ _**Delete User**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+
+#### 8️⃣ _**Delete User by ID**_
+- **📌 Endpoint:** `DELETE /engineeringstudy/user/{id}`
+- **🛠️ Functionality:**  delete user by ID.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Delete%20User.png?raw=true)
+  ![Delete User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Delete%20User.png?raw=true)
+
 ---
 
-
-### 3️⃣ _**Create Announcement (Admin)**_  
-- **📌 Endpoint:** `POST /engineeringstudy/admin/announcements`  
-- **🛠️ Functionality:** Admin can post a new announcement.  
+#### 9️⃣ _**Create Announcement (Admin)**_
+- **📌 Endpoint:** `POST /engineeringstudy/admin/announcements`
+- **🛠️ Functionality:**  create a new announcement.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Create Announcement](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Add%20announcemnt.png?raw=true)
+  ![Create Announcement](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Add%20announcemnt.png?raw=true)
 
 ---
 
-### 4️⃣ _**Get All Announcements**_  
-- **📌 Endpoint:** `GET /engineeringstudy/announcements`  
-- **🛠️ Functionality:** Returns all announcements visible to users.  
-- **🧪 Tested with:** Postman
-- **🖼️ Screenshot:**  
-![Get All Announcements**](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Get%20all%20announcemnt.png?raw=true)
-
----
-### 1️⃣ _**get announcemnt by id**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+#### 🔟 _**Get All Announcements**_
+- **📌 Endpoint:** `GET /engineeringstudy/announcements`
+- **🛠️ Functionality:** Returns all announcements visible to users.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/get%20announcemnt%20by%20id.png?raw=true)
+  ![Get All Announcements](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Get%20all%20announcemnt.png?raw=true)
+
 ---
-### 1️⃣ _**update announcement by announcementId**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+
+#### 1️⃣1️⃣ _**Get Announcement by ID**_
+- **📌 Endpoint:** `GET /engineeringstudy/admin/announcements/{announcementId}`
+- **🛠️ Functionality:** Fetch specific announcement by ID.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/update%20announcement%20by%20announcementId.png?raw=true)
----
-
-### 5️⃣ _**Upload PDF (User)**_  
-- **📌 Endpoint:** `POST /engineeringstudy/user/documents`  
-- **🛠️ Functionality:** Allows a user to upload a study document.  
-- **🧪 Tested with:** Postman
-- **🖼️ Screenshot:**  
-![Upload PDF](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/upload%20new%20document.png?raw=true)
+  ![Get Announcement by ID](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/get%20announcemnt%20by%20id.png?raw=true)
 
 ---
 
-### 1️⃣ _**get all documents**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+#### 1️⃣2️⃣ _**Update Announcement by ID**_
+- **📌 Endpoint:** `PUT /engineeringstudy/admin/announcements/{announcementId}`
+- **🛠️ Functionality:** Admin updates announcement details by ID.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/get%20all%20documents.png?raw=true)
+  ![Update Announcement](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/update%20announcement%20by%20announcementId.png?raw=true)
+
 ---
-### 1️⃣ _**get document by id**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+
+#### 1️⃣3️⃣ _**Upload PDF (User)**_
+- **📌 Endpoint:** `POST engineeringstudy/user/documents/upload/1?documentType=PDF&branch=Computer%20Engineering&semester=6&academicYear=2023-24&department=Engineering`
+- **🛠️ Functionality:** Upload a document with metadata.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/get%20document%20by%20id.png?raw=true)
+  ![Upload PDF](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/upload%20new%20document.png?raw=true)
+
 ---
-### 1️⃣ _**delete the document based id**_  
-- **📌 Endpoint:** `POST /engineeringstudy/auth/register`  
-- **🛠️ Functionality:** Accepts user details and registers a normal user.  
+
+#### 1️⃣4️⃣ _**Get All Documents**_
+- **📌 Endpoint:** `GET /engineeringstudy/user/documents`
+- **🛠️ Functionality:** Fetch all uploaded documents.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Register User](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/delete%20the%20document%20based%20id.png?raw=true)
+  ![Get All Documents](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/get%20all%20documents.png?raw=true)
+
 ---
 
-### 6️⃣ _**Convert Percentage to CGPA (User)**_  
-- **📌 Endpoint:** `GET /engineeringstudy/user/convert?percentage=85`  
-- **🛠️ Functionality:** Returns CGPA equivalent of given percentage.  
-- **🧪 Tested with:** Postman
+#### 1️⃣5️⃣ _**Get Document by ID**_
+- **📌 Endpoint:** `GET /engineeringstudy/user/documents/{id}`
+- **🛠️ Functionality:** Fetch document details by ID.
+- **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
-![Convert Percentage to CGPA](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/cgpa%20to%20percentage.png?raw=true)
+  ![Get Document by ID](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/get%20document%20by%20id.png?raw=true)
 
 ---
 
+#### 1️⃣6️⃣ _**Delete Document by ID**_
+- **📌 Endpoint:** `DELETE /engineeringstudy/user/documents/{id}`
+- **🛠️ Functionality:** Delete document by ID.
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+  ![Delete Document](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/delete%20the%20document%20based%20id.png?raw=true)
+
+---
+
+#### 1️⃣7️⃣ _**Convert Percentage to CGPA (User)**_
+- **📌 Endpoint:** `GET /engineeringstudy/user/convert?percentage=85`
+- **🛠️ Functionality:** Returns CGPA equivalent of given percentage.
+- **🧪 Tested with:** Postman  
+- **🖼️ Screenshot:**  
+  ![Convert Percentage to CGPA](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/cgpa%20to%20percentage.png?raw=true)
+
+---
 
 
