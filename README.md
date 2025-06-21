@@ -22,11 +22,11 @@ To keep the content useful and up to date, users can also remove any outdated or
 
 ---
 
-## 📊 Entity Overview
+### 📊 Entity Overview
 
 
 
-### 📂 _**Users**_
+#### 📂 _**Users**_
 - **ID** 
 - **Name** 
 - **Email**
@@ -34,7 +34,7 @@ To keep the content useful and up to date, users can also remove any outdated or
 - **Role** - Either `USER` or `ADMIN`  
 - **Documents** - List of documents uploaded by the user
 
-### 📄 _**Documents**_
+#### 📄 _**Documents**_
 - **ID** 
 - **Title** 
 - **DocumentType**
