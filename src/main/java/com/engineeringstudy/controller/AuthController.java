@@ -17,42 +17,41 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/engineeringstudy/auth")
 public class AuthController {
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    @Autowired
-    private JwtUtil jwtUtil;
+	@Autowired
+	private JwtUtil jwtUtil;
 
-    @Autowired
-    private AuthenticationManager authManager;
+	@Autowired
+	private AuthenticationManager authManager;
 
-    @PostMapping("/register")
-    public ResponseEntity<UserDto> registerUser(@Valid @RequestBody UserDto userDto) {
-        UserDto createdUser = userService.registerUser(userDto);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
-    }
+	@PostMapping("/register")
+	public ResponseEntity<UserDto> registerUser(@Valid @RequestBody UserDto userDto) {
+		UserDto createdUser = userService.registerUser(userDto);
+		return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+	}
 
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody AuthRequest request) {
-        try {
-            Authentication authentication = authManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
-            );
+	@PostMapping("/login")
+	public ResponseEntity<String> login(@RequestBody AuthRequest request) {
+		try {
+			Authentication authentication = authManager
+					.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
 
-            if (authentication.isAuthenticated()) {
-                String jwtToken = jwtUtil.generateToken(request.getEmail());
-                return ResponseEntity.ok("Bearer " + jwtToken);
-            } else {
-                return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
-            }
+			if (authentication.isAuthenticated()) {
+				String jwtToken = jwtUtil.generateToken(request.getEmail());
+				return ResponseEntity.ok("Bearer " + jwtToken);
+			} else {
+				return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
+			}
 
-        } catch (Exception e) {
-            return new ResponseEntity<>("Authentication failed: " + e.getMessage(), HttpStatus.UNAUTHORIZED);
-        }
-    }
+		} catch (Exception e) {
+			return new ResponseEntity<>("Authentication failed: " + e.getMessage(), HttpStatus.UNAUTHORIZED);
+		}
+	}
 
-    @GetMapping("/welcome")
-    public String welcome() {
-        return "Welcome to the protected endpoint!";
-    }
+	@GetMapping("/welcome")
+	public String welcome() {
+		return "Welcome to the protected endpoint!";
+	}
 }

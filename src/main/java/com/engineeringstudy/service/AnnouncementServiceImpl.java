@@ -43,7 +43,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 		Announcement saved = announcementRepository.save(announcement);
 		return modelMapper.map(saved, AnnouncementDto.class);
 	}
-	
+
 //	update the announcement by announcementId
 	@Override
 	public AnnouncementDto updateAnnouncement(AnnouncementDto announcementDto, Long announcementId) {
@@ -54,7 +54,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 		existingAnnouncement.setContent(announcementDto.getContent());
 		existingAnnouncement.setCreatedBy(announcementDto.getCreatedBy());
 		existingAnnouncement.setTargetAudience(announcementDto.getTargetAudience());
-		existingAnnouncement.setCreatedAt(LocalDateTime.now()); 
+		existingAnnouncement.setCreatedAt(LocalDateTime.now());
 		existingAnnouncement.setExpiryDate(announcementDto.getExpiryDate());
 
 		Announcement updatedAnnouncement = announcementRepository.save(existingAnnouncement);
@@ -105,5 +105,4 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 		announcementRepository.deleteById(id);
 	}
 
-	
 }

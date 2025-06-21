@@ -39,5 +39,4 @@ public class AnnouncementDto {
 
 	private LocalDateTime expiryDate;
 
-	
 }

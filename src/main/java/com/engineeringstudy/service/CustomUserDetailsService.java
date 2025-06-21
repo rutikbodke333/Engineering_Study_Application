@@ -13,22 +13,19 @@ import java.util.Collections;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    @Autowired
-    private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 
-    // Login with email
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email);
+	// Login with email
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		User user = userRepository.findByEmail(email);
 
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found with email: " + email);
-        }
+		if (user == null) {
+			throw new UsernameNotFoundException("User not found with email: " + email);
+		}
 
-        return new org.springframework.security.core.userdetails.User(
-            user.getEmail(),
-            user.getPassword(),
-            Collections.singletonList(new SimpleGrantedAuthority(user.getRole()))
-        );
-    }
+		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+				Collections.singletonList(new SimpleGrantedAuthority(user.getRole())));
+	}
 }

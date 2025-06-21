@@ -36,8 +36,8 @@ public class UserServiceImpl implements UserService {
 
 		// Encode the password before saving
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		user.setRole("ROLE_USER"); 
-		
+		user.setRole("ROLE_USER");
+
 		User savedUser = userRepository.save(user);
 
 		return modelMapper.map(savedUser, UserDto.class);
@@ -61,21 +61,19 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDto updateUser(UserDto userDto, Long id) {
-	    // Check if the user exists
-	    User existingUser = userRepository.findById(id)
-	            .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
-	    
-	    existingUser.setName(userDto.getName());
-	    existingUser.setEmail(userDto.getEmail());
-	    existingUser.setPassword(passwordEncoder.encode(userDto.getPassword()));
-	    existingUser.setRole(userDto.getRole()); // Ensure the role is set correctly
+		// Check if the user exists
+		User existingUser = userRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 
-	   
-	    User upsertUser = userRepository.save(existingUser);
+		existingUser.setName(userDto.getName());
+		existingUser.setEmail(userDto.getEmail());
+		existingUser.setPassword(passwordEncoder.encode(userDto.getPassword()));
+		existingUser.setRole(userDto.getRole()); // Ensure the role is set correctly
 
-	    return modelMapper.map(upsertUser, UserDto.class);
+		User upsertUser = userRepository.save(existingUser);
+
+		return modelMapper.map(upsertUser, UserDto.class);
 	}
-
 
 	@Override
 	public UserDto getUserById(Long id) {

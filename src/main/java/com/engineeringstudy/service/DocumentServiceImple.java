@@ -83,7 +83,7 @@ public class DocumentServiceImple implements DocumentService {
 			sort = Sort.by(sortBy).descending();
 		}
 
-		Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
 
 		Page<Document> documentPage = documentRepository.findAll(pageable);
 		List<Document> listOfDocuments = documentPage.getContent();
@@ -102,28 +102,23 @@ public class DocumentServiceImple implements DocumentService {
 		return paginationResponse;
 	}
 
-	
 	@Override
 	public void deleteDocument(Long id) {
-	    Document document = documentRepository.findById(id)
-	        .orElseThrow( () -> new RuntimeException("Document not found with ID: " + id));
+		Document document = documentRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Document not found with ID: " + id));
 
-	    // Step 1: Delete the file from the folder
-	    String filePath = document.getFilePath(); // or construct from baseDir + fileName
-	    File file = new File(filePath);
-	    if (file.exists()) {
-	        boolean deleted = file.delete();
-	        if (!deleted) {
-	            throw new RuntimeException("Failed to delete file from disk");
-	        }
-	    }
+		// Step 1: Delete the file from the folder
+		String filePath = document.getFilePath(); // or construct from baseDir + fileName
+		File file = new File(filePath);
+		if (file.exists()) {
+			boolean deleted = file.delete();
+			if (!deleted) {
+				throw new RuntimeException("Failed to delete file from disk");
+			}
+		}
 
-	    // Step 2: Delete record from the database
-	    documentRepository.deleteById(id);
+		// Step 2: Delete record from the database
+		documentRepository.deleteById(id);
 	}
-
-	
-	
-	
 
 }

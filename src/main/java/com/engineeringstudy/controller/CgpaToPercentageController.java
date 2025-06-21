@@ -22,10 +22,9 @@ public class CgpaToPercentageController {
 	@PostMapping("/convertCgpaToPercentage")
 	public ResponseEntity<String> convertCgpaToPercentage(@RequestBody CgpaToPercentageDto cgpaToPercentageDto) {
 
-		
 		if (cgpaToPercentageDto.getCgpa() == null) {
-	        throw new InvalidCgpaException("CGPA is null. Please provide a valid CGPA value.");
-	    }
+			throw new InvalidCgpaException("CGPA is null. Please provide a valid CGPA value.");
+		}
 		double cgpa = cgpaToPercentageDto.getCgpa();
 		Double percentage = cgpaToPercentageService.convertCgpaToPercentage(cgpa);
 

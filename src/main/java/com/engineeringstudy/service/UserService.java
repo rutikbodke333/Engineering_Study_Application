@@ -11,8 +11,8 @@ import com.engineeringstudy.entity.User;
 @Service
 public interface UserService {
 
-	
 	UserDto createUser(UserDto userDto);
+
 	UserDto updateUser(UserDto userDto, Long adminId);
 
 	UserDto getUserById(Long id);
@@ -20,7 +20,6 @@ public interface UserService {
 	PaginationResponce getAllUsers(Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
 
 	void deleteUserById(Long id);
-	
-	
+
 	public UserDto registerUser(UserDto userDto);
 }

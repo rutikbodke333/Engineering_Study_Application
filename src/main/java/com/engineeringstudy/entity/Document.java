@@ -16,12 +16,12 @@ public class Document {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String title; 
-	private String documentType; 
+	private String title;
+	private String documentType;
 
-	private String branch; 
-	private String semester; 
-	private String academicYear; 
+	private String branch;
+	private String semester;
+	private String academicYear;
 	private String department;
 
 	private String filePath; // Saved file location

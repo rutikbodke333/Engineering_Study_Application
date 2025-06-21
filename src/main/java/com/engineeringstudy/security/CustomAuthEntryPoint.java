@@ -1,7 +1,5 @@
 package com.engineeringstudy.security;
 
-
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -21,20 +19,19 @@ import java.util.Map;
 @Component
 public class CustomAuthEntryPoint implements AuthenticationEntryPoint {
 
-    @Override
-    public void commence(HttpServletRequest request,
-                         HttpServletResponse response,
-                         AuthenticationException authException) throws IOException {
+	@Override
+	public void commence(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException authException) throws IOException {
 
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401 Unauthorized
-        response.setContentType("application/json");
+		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401 Unauthorized
+		response.setContentType("application/json");
 
-        Map<String, Object> body = new HashMap<>();
-        body.put("status", 401);
-        body.put("error", "Unauthorized");
-        body.put("message", "Authentication is required to access this resource.");
-        body.put("path", request.getRequestURI());
+		Map<String, Object> body = new HashMap<>();
+		body.put("status", 401);
+		body.put("error", "Unauthorized");
+		body.put("message", "Authentication is required to access this resource.");
+		body.put("path", request.getRequestURI());
 
-        new ObjectMapper().writeValue(response.getOutputStream(), body);
-    }
+		new ObjectMapper().writeValue(response.getOutputStream(), body);
+	}
 }
