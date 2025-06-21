@@ -34,6 +34,7 @@ To keep the content useful and up to date, users can also remove any outdated or
 - **Role** - Either `USER` or `ADMIN`  
 - **Documents** - List of documents uploaded by the user
 
+
 #### 📄 _**Documents**_
 - **ID** 
 - **Title** 
@@ -45,11 +46,16 @@ To keep the content useful and up to date, users can also remove any outdated or
 - **FilePath** - file location 
 - **User** - User who uploaded the document
 
-### 📢 _**Announcements**_
-- **ID** - Unique identifier  
-- **Title** - Announcement title  
-- **Message** - Announcement content  
-- **PostedBy** - User ID who posted it
+
+#### 📢 _**Announcements**_
+
+- **ID**
+- **Title**
+- **Content**
+- **CreatedBy**
+- **TargetAudience**
+- **CreatedAt**
+- **ExpiryDate**
 
 ---
 
