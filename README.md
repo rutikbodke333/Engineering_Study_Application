@@ -29,21 +29,32 @@ A backend system designed for **Pranvi**, an engineering student passionate abou
 
 ## 📊 Understanding the Data
 
-Pranvi needs two key entities in her system:
 
-### 📂 _**Users**_
-- **ID** (Unique identifier)  
-- **Name**  
-- **Email**  
-- **Password**  
-- **Role** (_USER_ / _ADMIN_)
+# 📂 **Users**
+- **ID** 
+- **Name** 
+- **Email**
+- **Password** 
+- **Role** - Either `USER` or `ADMIN`  
+- **Documents** - List of documents uploaded by the user
 
-### 📢 _**Announcements**_
-- **ID** (Unique identifier)  
-- **Title**  
-- **Message**  
-- **PostedBy** (User ID)
+# 📄 **Documents**
+- **ID** 
+- **Title** 
+- **DocumentType**
+- **Branch** 
+- **Semester** 
+- **AcademicYear** 
+- **Department** 
+- **FilePath** - file location 
+- **User** - User who uploaded the document
 
+# 📢 **Announcements**
+- **ID** - Unique identifier  
+- **Title** - Announcement title  
+- **Message** - Announcement content  
+- **PostedBy** - User ID who posted it
+- 
 ---
 
 ## 🧑‍💻 User Roles
