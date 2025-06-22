@@ -152,7 +152,7 @@ The system supports two main user roles:
 
 ---
 
-#### 5️⃣ _**Get All Users **_
+#### 5️⃣ _**Get All Users**_
 - **📌 Endpoint:** `GET /engineeringstudy/user/allUsers`
 - **🛠️ Functionality:**  fetch all registered users.
 - **🧪 Tested with:** Postman  
