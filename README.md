@@ -188,9 +188,9 @@ The system supports two main user roles:
 
 ---
 
-#### 9️⃣ _**Create Announcement (Admin)**_
+#### 9️⃣ _**Create Announcement**_
 - **📌 Endpoint:** `POST /engineeringstudy/admin/announcements`
-- **🛠️ Functionality:**  create a new announcement.
+- **🛠️ Functionality:**  Admin can create a new announcement.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
   ![Create Announcement](https://github.com/rutikbodke333/Engineering_Study_Application/blob/main/images/Add%20announcemnt.png?raw=true)
@@ -198,7 +198,7 @@ The system supports two main user roles:
 ---
 
 #### 🔟 _**Fetch All Announcements**_
-- **📌 Endpoint:** `GET /engineeringstudy/announcements`
+- **📌 Endpoint:** `GET /engineeringstudy/admin/announcements`
 - **🛠️ Functionality:** Returns all announcements visible to users.
 - **🧪 Tested with:** Postman  
 - **🖼️ Screenshot:**  
