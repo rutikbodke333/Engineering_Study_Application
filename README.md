@@ -134,7 +134,7 @@ The system supports two main user roles:
 
 ---
 
-#### 3️⃣ _**Create User Profile (Admin)**_
+#### 3️⃣ _**Create Admin Profile**_
 - **📌 Endpoint:** `POST /engineeringstudy/admin/users`
 - **🛠️ Functionality:** Allows admin to create  accounts with admin role.
 - **🧪 Tested with:** Postman  
@@ -152,7 +152,7 @@ The system supports two main user roles:
 
 ---
 
-#### 5️⃣ _**Get All Users (Admin)**_
+#### 5️⃣ _**Get All Users **_
 - **📌 Endpoint:** `GET /engineeringstudy/user/allUsers`
 - **🛠️ Functionality:**  fetch all registered users.
 - **🧪 Tested with:** Postman  
@@ -161,7 +161,7 @@ The system supports two main user roles:
 
 ---
 
-### 6️⃣ _**Update User (Admin/User)**_
+### 6️⃣ _**Update User**_
 - **📌 Endpoint:** `PUT /engineeringstudy/user/{id}`
 - **🛠️ Functionality:** update user details by ID.
 - **🧪 Tested with:** Postman  
@@ -170,7 +170,7 @@ The system supports two main user roles:
 
 ---
 
-### 7️⃣ _**Get User by ID**_
+### 7️⃣ _**Find User by ID**_
 - **📌 Endpoint:** `GET /engineeringstudy/user/{id}`
 - **🛠️ Functionality:** Fetch user data by ID.
 - **🧪 Tested with:** Postman  
@@ -197,7 +197,7 @@ The system supports two main user roles:
 
 ---
 
-#### 🔟 _**Get All Announcements**_
+#### 🔟 _**Fetch All Announcements**_
 - **📌 Endpoint:** `GET /engineeringstudy/announcements`
 - **🛠️ Functionality:** Returns all announcements visible to users.
 - **🧪 Tested with:** Postman  
@@ -206,7 +206,7 @@ The system supports two main user roles:
 
 ---
 
-#### 1️⃣1️⃣ _**Get Announcement by ID**_
+#### 1️⃣1️⃣ _**Find Announcement by ID**_
 - **📌 Endpoint:** `GET /engineeringstudy/admin/announcements/{announcementId}`
 - **🛠️ Functionality:** Fetch specific announcement by ID.
 - **🧪 Tested with:** Postman  
@@ -242,7 +242,7 @@ The system supports two main user roles:
 
 ---
 
-#### 1️⃣5️⃣ _**Get Document by ID**_
+#### 1️⃣5️⃣ _**Find Document by ID**_
 - **📌 Endpoint:** `GET /engineeringstudy/user/documents/{id}`
 - **🛠️ Functionality:** Fetch document details by ID.
 - **🧪 Tested with:** Postman  
